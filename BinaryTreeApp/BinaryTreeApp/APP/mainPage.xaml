@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BinaryTreeApp.APP.mainPage"
+             NavigationPage.HasNavigationBar = "false" >
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout Padding="0" BackgroundColor="White"
+                 Orientation="Horizontal"
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalOptions="CenterAndExpand">
+                <Button x:Name="Generate"  Text="GENERATE" BackgroundColor="#D1B6FF" WidthRequest="135" FontSize="Subtitle" FontAttributes="Bold" />
+
+            </StackLayout>
+
+            <StackLayout>
+
+                <Label  HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="85" />
+                <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                    <Grid.RowDefinitions>
+                        
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame HeightRequest="70" WidthRequest="70" CornerRadius="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0" Padding="0" BackgroundColor="#D1B6FF" Grid.Row="0" Grid.Column="3">
+                        <Label Text="N1" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <Frame HeightRequest="70" WidthRequest="70" CornerRadius="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0" Padding="0" BackgroundColor="#D1B6FF" Grid.Row="2" Grid.Column="2">
+                        <Label Text="N2" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <Frame HeightRequest="70" WidthRequest="70" CornerRadius="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0" Padding="0" BackgroundColor="#D1B6FF" Grid.Row="2" Grid.Column="4">
+                        <Label Text="N3" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <Frame HeightRequest="70" WidthRequest="70" CornerRadius="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0" Padding="0" BackgroundColor="#D1B6FF" Grid.Row="4" Grid.Column="0">
+                        <Label Text="N4" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <Frame HeightRequest="70" WidthRequest="70" CornerRadius="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0" Padding="0" BackgroundColor="#D1B6FF" Grid.Row="4" Grid.Column="2">
+                        <Label Text="N5" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <Frame HeightRequest="70" WidthRequest="70" CornerRadius="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0" Padding="0" BackgroundColor="#D1B6FF" Grid.Row="4" Grid.Column="4">
+                        <Label Text="N6" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <Frame HeightRequest="70" WidthRequest="70" CornerRadius="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="0" Padding="0" BackgroundColor="#D1B6FF" Grid.Row="4" Grid.Column="6">
+                        <Label Text="N7" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    </Frame>
+
+                    <BoxView VerticalOptions="Fill" HorizontalOptions="Center" WidthRequest="1"  Color="#000000" Grid.Row="3" Grid.Column="2"/>
+                    <BoxView VerticalOptions="Fill" HorizontalOptions="Center" WidthRequest="1"  Color="#000000" Grid.Row="3" Grid.Column="4"/>
+                    <Image Source="line.png" HeightRequest="40" WidthRequest="40" Grid.Row="3" Grid.Column="1"/>
+                    <Image Source="line2.png" HeightRequest="40" WidthRequest="40" Grid.Row="3" Grid.Column="5"/>
+                    <Image Source="line.png" HeightRequest="40" WidthRequest="40" Grid.Row="1" Grid.Column="2"/>
+                    <Image Source="line2.png" HeightRequest="40" WidthRequest="40" Grid.Row="1" Grid.Column="4"/>
+
+
+                </Grid>
+                
+            </StackLayout>
+            <Label  HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="145" />
+            <StackLayout Padding="0" BackgroundColor="White" Margin="-6"
+                 Orientation="Horizontal"
+                 VerticalOptions="End"
+                 HorizontalOptions="EndAndExpand">
+                <Button x:Name="preorder"  Text="Pre-Order" BackgroundColor="#D1B6FF" WidthRequest="135" FontSize="Subtitle" FontAttributes="Bold"  />
+                <Button x:Name="inorder"  Text="In-Order" BackgroundColor="#D1B6FF" WidthRequest="135" FontSize="Subtitle" FontAttributes="Bold"   />
+                <Button x:Name="postorder" Text="Post-Order" BackgroundColor="#D1B6FF" WidthRequest="135" FontSize="Subtitle" FontAttributes="Bold"  />
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

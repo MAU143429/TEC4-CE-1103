@@ -1,17 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+/// <summary>
+/// Tree implementations and order routes are based on http://csharpexamples.com/c-binary-search-tree-implementation/ source code.
+/// Tree printing methods are based on https://www.baeldung.com/java-print-binary-tree-diagram source code but implemented for C#.
+/// </summary>
 namespace BinaryTreeApp.Data_Structure
-{
+{   /// <summary>
+    /// Creates the Binary tree class with a root object
+    /// </summary>
     class BinarySearchTree
     {
         public static Node Root { get; set; }
-
-        public static void clear()
+        /// <summary>
+        /// Sets root to null so every change made just vanishes
+        /// </summary>
+        public static void Clear()
         {
             Root = null;
         }
+        /// <summary>
+        /// Adds a new node to the tree with the specified value
+        /// </summary>
+        /// <param name="value">Integer value to be set to a new node</param>
+        /// <returns></returns>
         public static bool Add(int value)
         {
             Node before = null;
@@ -39,132 +51,115 @@ namespace BinaryTreeApp.Data_Structure
 
             return true;
         }
-
-
-        public static Node Find(int value)
-        {
-            return Find(value, Root);
-        }
-
-        private static Node Find(int value, Node root)
-        {
-            if (root.Data == value) return root;
-            if (root.Right != null) Find(value, root.Right);
-            if (root.Left != null) Find(value, root.Left);
-            return null;
-        }
-
-        private static int MinValue(Node node)
-        {
-            int minv = node.Data;
-
-            while (node.Left != null)
-            {
-                minv = node.Left.Data;
-                node = node.Left;
-            }
-
-            return minv;
-        }
-
-        public void Remove(int value)
-        {
-            Root = Remove(Root, value);
-        }
-
-        private static Node Remove(Node parent, int key)
-        {
-
-            if (parent == null) return parent;
-
-            if (key < parent.Data) parent.Left = Remove(parent.Left, key);
-            else if (key > parent.Data) parent.Right = Remove(parent.Right, key);
-            else
-            {
-                if (parent.Left == null) return parent.Right;
-                else if (parent.Right == null) return parent.Left;
-
-                parent.Data = MinValue(parent.Right);
-                parent.Right = Remove(parent.Right, parent.Data);
-            }
-            return parent;
-        }
-
+        /// <summary>
+        /// Overloaded method for calling the pre-order traverse logical method with the root used at the moment
+        /// </summary>
+        /// <returns></returns>
         public static String TraversePreOrder()
         {
 
-            return (TraversePreOrder(Root, "[")) + "]";
+            return (TraversePreOrder(Root, "PRE-ORDER SEQUENCE: "));
 
         }
-
+        /// <summary>
+        /// Recursive method for traversing and printing the tree in pre-order
+        /// </summary>
+        /// <param name="parent">Is the node whose children are going to be traversed</param>
+        /// <param name="result">String value for the result</param>
+        /// <returns>Returns string value of the traverse </returns>
         private static String TraversePreOrder(Node parent, String result)
         {
             if (parent != null)
             {
-                result += parent.Data + "-->";
+                result += parent.Data + " ⇒ ";
                 result += TraversePreOrder(parent.Left, "");
                 result += TraversePreOrder(parent.Right, "");
             }
             return result;
         }
-
+        /// <summary>
+        /// Overloaded method for calling the in-order traverse logical method with the root used at the moment
+        /// </summary>
+        /// <returns></returns>
         public static String TraverseInOrder()
         {
 
-            return (TraverseInOrder(Root, "[")) + "]";
+            return (TraverseInOrder(Root, "IN-ORDER SEQUENCE: "));
 
         }
-
+        /// <summary>
+        /// Recursive method for traversing and printing the tree in in-order
+        /// </summary>
+        /// <param name="parent">Is the node whose children are going to be traversed</param>
+        /// <param name="result">String value for the result</param>
+        /// <returns>Returns string value of the traverse </returns>
         private static String TraverseInOrder(Node parent, String result)
         {
             if (parent != null)
             {
                 result += TraverseInOrder(parent.Left, "");
-                result += parent.Data + "-->";
+                result += parent.Data + " ⇒ ";
                 result += TraverseInOrder(parent.Right, "");
             }
 
             return result;
         }
-
+        /// <summary>
+        /// Overloaded method for calling the post-order traverse logical method with the root used at the moment
+        /// </summary>
+        /// <returns></returns>
         public static String TraversePostOrder()
         {
 
-            return (TraversePostOrder(Root, "[")) + "]";
+            return (TraversePostOrder(Root, "POST-ORDER SEQUENCE: "));
 
         }
-
+        /// <summary>
+        /// Recursive method for traversing and printing the tree in post-order
+        /// </summary>
+        /// <param name="parent">Is the node whose children are going to be traversed</param>
+        /// <param name="result">String value for the result</param>
+        /// <returns>Returns string value of the traverse </returns>
         private static String TraversePostOrder(Node parent, String result)
         {
             if (parent != null)
             {
                 result += TraversePostOrder(parent.Left, "");
                 result += TraversePostOrder(parent.Right, "");
-                result += parent.Data + "-->";
+                result += parent.Data + " ⇒ ";
             }
             return result;
         }
-
-
+        /// <summary>
+        /// Overload method for calling toString(String a, Boolean b, String printedtree, Node d) method with the root value.
+        /// </summary>
+        /// <returns></returns>
         public static String toString()
         {
             return toString("", true, "", Root);
         }
-
-        public static String toString(String prefix, Boolean isTail, String sb, Node head)
+        /// <summary>
+        /// Method for printing the tree in a basic visual way
+        /// </summary>
+        /// <param name="prefix"></param>
+        /// <param name="isTail">Boolean that indicates if the node is tail</param>
+        /// <param name="result">This will be the tree, so start as a "".</param>
+        /// <param name="head">This is the node that is being added at the moment</param>
+        /// <returns></returns>
+        public static String toString(String prefix, Boolean isTail, String result, Node head)
         {
             if (head.Right != null)
             {
-                sb += toString(prefix + (isTail ? "│   " : "    "), false, "", head.Right);
+                result += toString(prefix + (isTail ? "│   " : "    "), false, "", head.Right);
             }
 
-            sb += prefix + (isTail ? "└──" : "┌──") + "[" + head.Data + "]" + "\n";
+            result += prefix + (isTail ? "|__" : "|‾‾") + "(" + head.Data + ")" + "\n";
 
             if (head.Left != null)
             {
-                sb += toString(prefix + (isTail ? "    " : "│   "), true, "", head.Left);
+                result += toString(prefix + (isTail ? "    " : "│   "), true, "", head.Left);
             }
-            return sb;
+            return result;
         }
 
     }

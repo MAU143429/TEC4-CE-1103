@@ -9,7 +9,7 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <StackLayout Padding="0" BackgroundColor="White"
+            <StackLayout Padding="0" BackgroundColor="#D1B6FF"
                  Orientation="Horizontal"
                  VerticalOptions="CenterAndExpand"
                  HorizontalOptions="CenterAndExpand">
@@ -22,7 +22,7 @@
 
             <ScrollView WidthRequest="200" HeightRequest="400">
                 <StackLayout>
-                    <Label x:Name="tree" Text="ADD A NODE" HorizontalTextAlignment="Start"  LineBreakMode="WordWrap" FontSize="Large"  VerticalTextAlignment="Center"/>
+                    <Label x:Name="tree" Text="YOUR TREE DISPLAY" HorizontalTextAlignment="Start"  LineBreakMode="WordWrap" FontSize="Large"  VerticalTextAlignment="Center"/>
                 </StackLayout>
             </ScrollView>
             <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#000000"/>
